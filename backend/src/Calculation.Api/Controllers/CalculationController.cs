@@ -1,6 +1,7 @@
 ﻿using Calculation.Api.Dtos;
 using Calculation.Api.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Calculation.Api.Controllers;
 
@@ -9,11 +10,27 @@ namespace Calculation.Api.Controllers;
 public class CalculationController : ControllerBase
 {
     private readonly ICalculationCdbService _cdbService;
+    private readonly ILogger<CalculationController> _logger;
 
-    public CalculationController(ICalculationCdbService cdbService)
-        => _cdbService = cdbService;
+    public CalculationController(
+        ICalculationCdbService cdbService,
+        ILogger<CalculationController> logger)
+    {
+        _cdbService = cdbService;
+        _logger = logger;
+    }
 
     [HttpGet]
     public IActionResult Calculate([FromQuery] InvestmentValues investmentValues)
-        => Ok(_cdbService.CalculateCdb(investmentValues));
+    {
+        try
+        {
+            return Ok(_cdbService.CalculateCdb(investmentValues));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, ex.Message);
+            return StatusCode((int)HttpStatusCode.InternalServerError);
+        }
+    }
 }
