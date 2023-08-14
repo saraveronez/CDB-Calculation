@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Itens", "Solution Itens", "{249D110E-3670-4782-9690-5BAB4015A458}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{CED5B7A8-342D-4C0C-9D0D-E572D52EF6B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{BE381D38-1A94-44F9-8196-0B041BE7DFB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculation.Api", "backend\src\Calculation.Api\Calculation.Api.csproj", "{1F106581-9F12-43DF-B226-30761FD41958}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculation.Tests", "backend\tests\Calculation.Tests\Calculation.Tests.csproj", "{2F5B4129-42BE-4077-A978-8127A3340DF9}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "frontend", "frontend\", "{429C8BA4-608D-4EE9-A889-526B2F6D7A87}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61557"
+		Debug.AspNetCompiler.PhysicalPath = "frontend\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61557\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61557"
+		Release.AspNetCompiler.PhysicalPath = "frontend\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61557\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61557"
+		SlnRelativePath = "frontend\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F106581-9F12-43DF-B226-30761FD41958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F106581-9F12-43DF-B226-30761FD41958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F106581-9F12-43DF-B226-30761FD41958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F106581-9F12-43DF-B226-30761FD41958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5B4129-42BE-4077-A978-8127A3340DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5B4129-42BE-4077-A978-8127A3340DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5B4129-42BE-4077-A978-8127A3340DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5B4129-42BE-4077-A978-8127A3340DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429C8BA4-608D-4EE9-A889-526B2F6D7A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429C8BA4-608D-4EE9-A889-526B2F6D7A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429C8BA4-608D-4EE9-A889-526B2F6D7A87}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{429C8BA4-608D-4EE9-A889-526B2F6D7A87}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F106581-9F12-43DF-B226-30761FD41958} = {CED5B7A8-342D-4C0C-9D0D-E572D52EF6B6}
+		{2F5B4129-42BE-4077-A978-8127A3340DF9} = {CED5B7A8-342D-4C0C-9D0D-E572D52EF6B6}
+		{429C8BA4-608D-4EE9-A889-526B2F6D7A87} = {BE381D38-1A94-44F9-8196-0B041BE7DFB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4524204-D4B9-4C55-8CCA-B9BF7199DE0F}
+	EndGlobalSection
+EndGlobal

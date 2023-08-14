@@ -1,0 +1,36 @@
+<div id="card-calculo-investimento" class="offset-md-3 col-md-6">
+  <div class="card col-md-12">
+    <div class="card-body">
+      <h5 class="card-title">Cálculo de investimento</h5>
+      <p class="card-text">Insira o valor do investimento e o número de meses para realizar o cálculo.</p>
+    </div>
+    <div class="card-body">
+      <form class="" id="formSimulacaoInvestimento" (ngSubmit)="getCalculo()">
+        <div class="form-group">
+          <label for="valorInvestimento">Valor do investimento</label>
+          <input type="number" class="form-control" id="initialValue" required [(ngModel)]="initialValue" name="initialValue" placeholder="R$ 0,00">
+        </div>
+        <div class="form-group">
+          <label for="numeroMeses">Meses</label>
+          <input type="number" class="form-control" id="months" required [(ngModel)]="months" name="months"/>
+        </div><br>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+       
+      </form>
+    </div>
+  </div>
+  <br/>
+  <div class="card col-md-12" *ngIf="calc">
+    <div class="card-body">
+      <h5 class="card-title">Resultado</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Valor Bruto:</b> {{ calc.grossValueTotal | currency:'BRL' }}</li>
+        <li class="list-group-item"><b>Valor Liquido:</b> {{ calc.netValueTotal | currency:'BRL' }}</li>
+        <li class="list-group-item"><b>Valor Lucro Bruto:</b> {{ calc.grossProfit | currency:'BRL' }}</li>
+        <li class="list-group-item"><b>Valor Lucro Liquido:</b> {{ calc.netProfit | currency:'BRL' }}</li>
+        <li class="list-group-item"><b>Impostos:</b> {{ calc.taxes | currency:'BRL' }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
