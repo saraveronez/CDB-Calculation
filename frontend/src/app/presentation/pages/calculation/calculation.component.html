@@ -4,6 +4,13 @@
       <h5 class="card-title">Cálculo de investimento</h5>
       <p class="card-text">Insira o valor do investimento e o número de meses para realizar o cálculo.</p>
     </div>
+    <div class="error-messages" *ngIf="errorMessages">
+      <div class="row" *ngFor="let message of errorMessages">
+        <div class="col-md-12">
+          <span class="badge bg-danger">{{ message }}</span>
+        </div>
+      </div>
+    </div>
     <div class="card-body">
       <form class="" id="formSimulacaoInvestimento" (ngSubmit)="getCalculo()">
         <div class="form-group">
@@ -15,7 +22,6 @@
           <input type="number" class="form-control" id="months" required [(ngModel)]="months" name="months"/>
         </div><br>
         <button type="submit" class="btn btn-primary">Calcular</button>
-       
       </form>
     </div>
   </div>
