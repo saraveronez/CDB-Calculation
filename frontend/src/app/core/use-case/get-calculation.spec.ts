@@ -1,14 +1,14 @@
-import { CalculationWebRepository } from "src/app/data/repositories/calculation-repository/calculation-repository";
 import { GetCalculationUseCase } from "./get-calculation";
 import { TestBed } from "@angular/core/testing";
 import { InvestimentModel } from "../domain/investiment-model";
 import { CalculationModel } from "../domain/calculation-model";
 import { BehaviorSubject } from "rxjs";
+import { CalculationRepository } from "../repositories/calculation-repository";
 
 describe('GetCalculationUseCase', () => {
  
   let useCase: GetCalculationUseCase;
-  let repositorySpy: jasmine.SpyObj<CalculationWebRepository>;
+  let repositorySpy: jasmine.SpyObj<CalculationRepository>;
   
  
   beforeEach(() => {
@@ -17,11 +17,11 @@ describe('GetCalculationUseCase', () => {
     TestBed.configureTestingModule({
       providers: [
         GetCalculationUseCase,
-        { provide: CalculationWebRepository, useValue: spy }
+        { provide: CalculationRepository, useValue: spy }
       ]
     });
     useCase = TestBed.inject(GetCalculationUseCase);
-    repositorySpy = TestBed.inject(CalculationWebRepository) as jasmine.SpyObj<CalculationWebRepository>;
+    repositorySpy = TestBed.inject(CalculationRepository) as jasmine.SpyObj<CalculationRepository>;
   });
 
   it('should return values is valid', async () => {

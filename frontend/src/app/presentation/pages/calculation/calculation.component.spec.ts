@@ -20,7 +20,7 @@ describe('CalculationComponent', () => {
     useCase = TestBed.inject(GetCalculationUseCase);
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
   });
 
@@ -29,8 +29,8 @@ describe('CalculationComponent', () => {
     component.months = 10;
     component.getCalculo();
 
-    expect(component.calc).not.toBeNull();
-    expect(component.calc?.netProfit).toBe(98.47);
+    expect(component.calculationModel).not.toBeNull();
+    expect(component.calculationModel?.netProfit).toBe(98.47);
   });
 })
 class MockUseCase {

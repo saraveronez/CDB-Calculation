@@ -12,25 +12,22 @@ import { validateCalculation } from 'src/app/core/validators/calculation-validat
 export class CalculationComponent {
   public initialValue: number = 0;
   public months: number = 0;
-  calc?: CalculationModel;
+  calculationModel?: CalculationModel;
   errorMessages?: Array<string>;
 
-  constructor(private getCalc: GetCalculationUseCase) {}
+  constructor(private getCalculation: GetCalculationUseCase) {}
 
     // Atualiza a variável calc com o resultado
     getCalculo() {
       this.errorMessages = new Array<string>; 
 
-      const requestData: InvestimentModel = {
-        initialValue: this.initialValue,
-        months: this.months
-      };
+      const requestData: InvestimentModel= new InvestimentModel(this.months, this.initialValue);
 
       this.errorMessages = validateCalculation(requestData);
       if (this.errorMessages.length > 0) return;
 
-      this.getCalc.execute(requestData).subscribe({
-        next: (value) => this.calc = value,
+      this.getCalculation.execute(requestData).subscribe({
+        next: (value) => this.calculationModel = value,
         error: console.error
       });
     }

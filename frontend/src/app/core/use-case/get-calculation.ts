@@ -1,9 +1,9 @@
 import { Observable } from "rxjs";
 import { CalculationModel } from "../domain/calculation-model";
 import { UseCase } from "../base/use-case";
-import { CalculationWebRepository } from "src/app/data/repositories/calculation-repository/calculation-repository";
 import { Injectable } from "@angular/core";
 import { InvestimentModel } from "../domain/investiment-model";
+import { CalculationRepository } from "../repositories/calculation-repository";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { InvestimentModel } from "../domain/investiment-model";
 
 export class GetCalculationUseCase implements UseCase<InvestimentModel, CalculationModel> {
 
-  constructor(private calcRepository: CalculationWebRepository) { }
+  constructor(private calcRepository: CalculationRepository) { }
 
   execute(params: InvestimentModel): Observable<CalculationModel> {
     return this.calcRepository.getCalculation(params);

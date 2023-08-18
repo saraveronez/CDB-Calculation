@@ -1,5 +1,6 @@
 ﻿using Calculation.Api.Dtos;
 using Calculation.Api.Services;
+using Calculation.Api.Services.Taxes;
 using FluentAssertions;
 
 namespace Calculation.Tests.UnitTests.Services;
@@ -16,7 +17,7 @@ public class CalculationCdbServiceTests
     public void ShouldReturnNetValueTotalCurretly(decimal initalValue, int months, decimal netValueTotal)
     {
         // Arrange
-        var service = new CalculationCdbService();
+        var service = new CalculationCdbService(new TaxesSixMonthsOrLessCalculator());
         var investimentValues = new InvestmentValues()
         {
             InitialValue = initalValue,
@@ -39,7 +40,7 @@ public class CalculationCdbServiceTests
     public void ShouldReturnNetProfitCurretly(decimal initalValue, int months, decimal netProfit)
     {
         // Arrange
-        var service = new CalculationCdbService();
+        var service = new CalculationCdbService(new TaxesSixMonthsOrLessCalculator());
         var investimentValues = new InvestmentValues()
         {
             InitialValue = initalValue,
@@ -62,7 +63,7 @@ public class CalculationCdbServiceTests
     public void ShouldReturnGrossValueTotalCurretly(decimal initalValue, int months, decimal grossValueTotal)
     {
         // Arrange
-        var service = new CalculationCdbService();
+        var service = new CalculationCdbService(new TaxesSixMonthsOrLessCalculator());
         var investimentValues = new InvestmentValues()
         {
             InitialValue = initalValue,
@@ -85,7 +86,7 @@ public class CalculationCdbServiceTests
     public void ShouldReturnGrossValueCurretly(decimal initalValue, int months, decimal grossValue)
     {
         // Arrange
-        var service = new CalculationCdbService();
+        var service = new CalculationCdbService(new TaxesSixMonthsOrLessCalculator());
         var investimentValues = new InvestmentValues()
         {
             InitialValue = initalValue,
@@ -108,7 +109,7 @@ public class CalculationCdbServiceTests
     public void ShouldReturnTaxesCurretly(decimal initalValue, int months, decimal taxes)
     {
         // Arrange
-        var service = new CalculationCdbService();
+        var service = new CalculationCdbService(new TaxesSixMonthsOrLessCalculator());
         var investimentValues = new InvestmentValues()
         {
             InitialValue = initalValue,
