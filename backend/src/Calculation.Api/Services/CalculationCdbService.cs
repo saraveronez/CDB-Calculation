@@ -1,4 +1,5 @@
 ﻿using Calculation.Api.Dtos;
+using Calculation.Api.Services.Taxes;
 using Calculation.Api.Services.Taxes.Handlers;
 
 namespace Calculation.Api.Services;
@@ -10,7 +11,13 @@ public class CalculationCdbService : ICalculationCdbService
 
     private readonly ITaxesHandler _taxesHandler;
 
-    public CalculationCdbService(ITaxesHandler taxesHandler) => _taxesHandler = taxesHandler;
+    public CalculationCdbService(ITaxesHandler taxesHandler)
+    {
+        _taxesHandler = taxesHandler;
+        _taxesHandler.SetNext(new TaxesBetweenSixTwelveMonthsCalculator())
+                     .SetNext(new TaxesBetweenTwelveTwentyFourMonthsCalculator())
+                     .SetNext(new TaxesGreaterThanTwentyfourMonthsCalculator());
+    }
 
     public CdbCalculationResult CalculateCdb(InvestmentValues investmentValues)
     {

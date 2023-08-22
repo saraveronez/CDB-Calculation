@@ -6,8 +6,6 @@ public class TaxesBetweenSixTwelveMonthsCalculator : TaxesCalculatorHandler
 {
     private const decimal TAX_BETWEEN_SIX_TWELVE_MONTHS = 0.2m;
 
-    public TaxesBetweenSixTwelveMonthsCalculator() => SetNext(new TaxesBetweenTwelveTwentyFourMonthsCalculator());
-
     public override decimal GetTaxValue(decimal grossValue, int months)
     {
         if (months is > 6 and <= 12)
